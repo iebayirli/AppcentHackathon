@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "164567408873",
+    "firebase_url": "https://appcenthackathon.firebaseio.com",
+    "project_id": "appcenthackathon",
+    "storage_bucket": "appcenthackathon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164567408873:android:01784bd6927cdd729a9078",
+        "android_client_info": {
+          "package_name": "com.iebayirli.appcent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "164567408873-eg7of2ns9bc38etmv1rom8m55i35qn6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEpMf3OGwPRNHLMLcl3eSzuDVpYPRZbCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "164567408873-eg7of2ns9bc38etmv1rom8m55i35qn6q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

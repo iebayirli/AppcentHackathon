@@ -16,4 +16,7 @@ class OnboardingActivity : BaseActivity<OnboardingViewModel, ActivityOnboardingB
 
 
     }
+
+    override fun observe() {
+    }
 }

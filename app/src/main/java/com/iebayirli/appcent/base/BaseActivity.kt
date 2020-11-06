@@ -16,7 +16,9 @@ abstract class BaseActivity<VM : BaseViewModel, B : ViewDataBinding> : AppCompat
 
     abstract val viewModel: VM
 
-    abstract fun initializeUI (savedInstanceState: Bundle?)
+    abstract fun initializeUI(savedInstanceState: Bundle?)
+
+    abstract fun observe()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,8 @@ abstract class BaseActivity<VM : BaseViewModel, B : ViewDataBinding> : AppCompat
         binding.lifecycleOwner = this
         binding.setVariable(BR.viewModel, viewModel)
         initializeUI(savedInstanceState)
+        observe()
+
     }
 
 }

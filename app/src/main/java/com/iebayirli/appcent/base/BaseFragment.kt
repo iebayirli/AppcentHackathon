@@ -9,6 +9,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.iebayirli.appcent.R
+import com.iebayirli.appcent.utils.observeNotNull
 
 abstract class BaseFragment<VM : BaseViewModel, B : ViewDataBinding> : Fragment() {
 
@@ -19,7 +22,9 @@ abstract class BaseFragment<VM : BaseViewModel, B : ViewDataBinding> : Fragment(
 
     abstract val viewModel: VM
 
-    abstract fun initializeUI (savedInstanceState: Bundle?)
+    abstract fun initializeUI(savedInstanceState: Bundle?)
+
+    abstract fun observe()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,6 +35,7 @@ abstract class BaseFragment<VM : BaseViewModel, B : ViewDataBinding> : Fragment(
             inflater, layoutId, container, false
         )
         binding.lifecycleOwner = this
+        R.id.action_loginFragment_to_userFormFragment
         binding.setVariable(BR.viewModel, viewModel)
         return binding.root
     }
@@ -37,6 +43,10 @@ abstract class BaseFragment<VM : BaseViewModel, B : ViewDataBinding> : Fragment(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initializeUI(savedInstanceState)
+        observe()
+        viewModel.getDestinationId().observeNotNull(this) {
+            findNavController().navigate(it)
+        }
     }
 
 }

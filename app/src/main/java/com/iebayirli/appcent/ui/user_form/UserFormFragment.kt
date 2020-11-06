@@ -19,5 +19,7 @@ class UserFormFragment : BaseFragment<UserFormViewModel, FragmentUserFormBinding
 
     }
 
+    override fun observe() {
+    }
 
 }

@@ -1,7 +1,6 @@
 package com.iebayirli.appcent.ui.main
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.iebayirli.appcent.R
 import com.iebayirli.appcent.base.BaseActivity
 import com.iebayirli.appcent.databinding.ActivityMainBinding
@@ -17,6 +16,8 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     override fun initializeUI(savedInstanceState: Bundle?) {
     }
 
+    override fun observe() {
+    }
 
 
 }

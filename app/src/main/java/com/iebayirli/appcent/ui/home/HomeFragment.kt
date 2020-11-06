@@ -18,4 +18,6 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     }
 
+    override fun observe() {
+    }
 }

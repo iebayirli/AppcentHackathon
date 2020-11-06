@@ -18,4 +18,7 @@ class ProfileFragment : BaseFragment<ProfileViewModel, FragmentProfileBinding>()
 
     }
 
+    override fun observe() {
+    }
+
 }

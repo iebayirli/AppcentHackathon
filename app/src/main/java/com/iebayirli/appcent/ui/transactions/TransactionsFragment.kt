@@ -18,5 +18,7 @@ class TransactionsFragment : BaseFragment<TransactionsViewModel, FragmentTransac
 
     }
 
+    override fun observe() {
+    }
 
 }

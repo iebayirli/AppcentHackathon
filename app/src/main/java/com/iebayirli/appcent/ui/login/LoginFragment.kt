@@ -17,8 +17,9 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
 
     override fun initializeUI(savedInstanceState: Bundle?) {
 
-
     }
 
+    override fun observe() {
 
+    }
 }

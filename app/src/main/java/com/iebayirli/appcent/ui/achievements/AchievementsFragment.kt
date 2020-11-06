@@ -19,4 +19,6 @@ class AchievementsFragment : BaseFragment<AchievementsViewModel, FragmentAchieve
 
     }
 
+    override fun observe() {
+    }
 }

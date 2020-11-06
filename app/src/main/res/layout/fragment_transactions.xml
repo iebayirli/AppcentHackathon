@@ -2,13 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.main.MainActivity">
+    tools:context=".ui.transactions.TransactionsFragment">
 
     <data>
 
         <variable
             name="viewModel"
-            type="com.iebayirli.appcent.ui.main.MainViewModel" />
+            type="com.iebayirli.appcent.ui.transactions.TransactionsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -21,6 +21,7 @@ abstract class BaseActivity<VM : BaseViewModel, B : ViewDataBinding> : AppCompat
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutId)
+        binding.lifecycleOwner = this
         binding.setVariable(BR.viewModel, viewModel)
         initializeUI(savedInstanceState)
     }

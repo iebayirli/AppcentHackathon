@@ -7,7 +7,7 @@ import com.iebayirli.appcent.common.DialogState
 import com.iebayirli.appcent.model.User
 import com.iebayirli.appcent.repository.UserRepository
 
-class ProfileViewModel(userRepository: UserRepository) : BaseViewModel() {
+class ProfileViewModel(private val userRepository: UserRepository) : BaseViewModel() {
 
     private val _navigateToUserForm = MutableLiveData(false)
     fun getNavigateToUserForm(): LiveData<Boolean> = _navigateToUserForm
@@ -20,6 +20,10 @@ class ProfileViewModel(userRepository: UserRepository) : BaseViewModel() {
     }
 
     init {
+        setupLeaderboard()
+    }
+
+    fun setupLeaderboard() {
         _dialog.postValue(DialogState.SHOW)
         userRepository.getLeaderboard {
             _leaderboard.postValue(it)

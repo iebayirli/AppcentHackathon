@@ -61,7 +61,7 @@ class MainViewModel(
             )
         ).addOnSuccessListener {
             user.point = point
-            _pointInformation.postValue(point.toString())
+            _pointInformation.postValue("$point Puan")
             closeQRDialog.postValue("CloseDialog")
             _dialog.postValue(DialogState.HIDE)
         }.addOnFailureListener {

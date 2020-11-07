@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.iebayirli.appcent.common.DialogState
 import com.iebayirli.appcent.utils.observeNotNull
-import com.kaopiz.kprogresshud.KProgressHUD
 
 abstract class BaseFragment<VM : BaseViewModel, B : ViewDataBinding> : Fragment() {
 
@@ -26,14 +25,6 @@ abstract class BaseFragment<VM : BaseViewModel, B : ViewDataBinding> : Fragment(
     abstract fun initializeUI(savedInstanceState: Bundle?)
 
     abstract fun observe()
-
-    val dialog by lazy {
-        KProgressHUD.create(requireContext())
-            .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-            .setCancellable(true)
-            .setAnimationSpeed(2)
-            .setDimAmount(0.5f)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,9 +48,9 @@ abstract class BaseFragment<VM : BaseViewModel, B : ViewDataBinding> : Fragment(
         }
         viewModel.getDialog().observeNotNull(this) {
             if (it == DialogState.HIDE)
-                dialog.dismiss()
+                (activity as? BaseActivity<*, *>)?.dialog?.dismiss()
             else
-                dialog.show()
+                (activity as? BaseActivity<*, *>)?.dialog?.show()
         }
     }
 

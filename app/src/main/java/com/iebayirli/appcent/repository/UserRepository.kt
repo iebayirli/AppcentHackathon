@@ -26,7 +26,8 @@ class UserRepository : BaseRepository() {
         db.get().addOnSuccessListener {
             if (it.documents.isNotEmpty()) {
                 val users = it.toObjects(User::class.java)
-                block(users.sortedBy { it.point })
+                users.sortByDescending { it.point }
+                block(users)
             }
         }
     }

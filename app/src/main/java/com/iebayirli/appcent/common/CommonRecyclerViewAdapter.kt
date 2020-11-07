@@ -44,6 +44,7 @@ class CommonRecyclerViewAdapter<T>(
         RecyclerView.ViewHolder(binding.root) {
         fun setupData(model: Any) {
             binding.setVariable(BR.model, model)
+            binding.setVariable(BR.itemClickListener, listener)
             binding.executePendingBindings()
         }
     }

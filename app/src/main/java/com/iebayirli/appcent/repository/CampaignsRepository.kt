@@ -19,6 +19,7 @@ class CampaignsRepository : BaseRepository() {
                         list.add(campaign)
                     }
                 }
+                list.sortBy { it.limit }
                 block(list)
             }
         }

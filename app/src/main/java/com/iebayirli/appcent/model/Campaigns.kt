@@ -5,4 +5,7 @@ data class Campaigns(
     val image: String? = null,
     val information: String? = null,
     val price: Int? = null,
-)
+    val limit: Int? = null,
+) {
+    var isUsable = false
+}

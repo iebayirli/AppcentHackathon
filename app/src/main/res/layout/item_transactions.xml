@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.iebayirli.appcent.model.LastTransactions" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:textAlignment="viewStart"
+                android:text="@{model.name}"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPoint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewEnd"
+                android:textSize="16sp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_weight=".5"
+                android:text="@{model.point.toString()}"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

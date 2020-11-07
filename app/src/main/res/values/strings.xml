@@ -4,4 +4,5 @@
     <string name="otp_code">SMS şifreniz</string>
     <string name="phone_number">+90 xxx xxx xx xx</string>
     <string name="onayla">Onayla</string>
+    <string name="info">Bazı durumlarda SMS servisi engellenebiliyor. Bu durumda test account üzerinde denemeler yapabilirsiniz <br>Telefon no : +905545744044  </br> <br> SMS kodu: 123456 </br></string>
 </resources>

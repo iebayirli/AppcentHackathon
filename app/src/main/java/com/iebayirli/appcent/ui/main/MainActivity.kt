@@ -28,6 +28,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
                 BottomNavigateState.HOME -> navController.navigate(R.id.action_gotoHome)
                 BottomNavigateState.ACHIEVEMENTS -> navController.navigate(R.id.action_gotoAchievements)
                 BottomNavigateState.PROFILE -> navController.navigate(R.id.action_gotoProfile)
+                BottomNavigateState.TRANSACTIONS -> navController.navigate(R.id.action_gotoTransactions)
             }
         }
 

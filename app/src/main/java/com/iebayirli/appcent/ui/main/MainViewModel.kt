@@ -8,13 +8,17 @@ import com.iebayirli.appcent.common.DialogState
 import com.iebayirli.appcent.common.LiveEvent
 import com.iebayirli.appcent.common.OnItemSelectListener
 import com.iebayirli.appcent.model.Campaigns
+import com.iebayirli.appcent.model.LastTransactions
 import com.iebayirli.appcent.repository.CampaignsRepository
+import com.iebayirli.appcent.repository.LastTransactionsRepository
 import com.iebayirli.appcent.repository.UserRepository
+import com.iebayirli.appcent.ui.transactions.TransactionState
 
 
 class MainViewModel(
     private val campaignsRepository: CampaignsRepository,
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
+    private val transactionsRepository: LastTransactionsRepository
 ) : BaseViewModel(),
     OnItemSelectListener {
 
@@ -53,8 +57,13 @@ class MainViewModel(
     }
 
     fun qrCodeRead() {
+        updatePoint(15, "${TransactionState.KAZANC} - QR")
+
+    }
+
+    fun updatePoint(value: Int, name: String) {
         _dialog.postValue(DialogState.SHOW)
-        val point = user.point + 15
+        val point = user.point + value
         userRepository.updateUser(
             user.uid!!, hashMapOf(
                 "point" to point
@@ -67,6 +76,8 @@ class MainViewModel(
         }.addOnFailureListener {
             _dialog.postValue(DialogState.HIDE)
         }
+        transactionsRepository.addLastTransactions(LastTransactions(name, value, user.uid))
     }
+
 
 }

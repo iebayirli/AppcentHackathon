@@ -7,14 +7,14 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.iebayirli.appcent.R
 import com.iebayirli.appcent.model.User
-import kotlinx.android.synthetic.main.listitem_leaderboard.view.*
+import kotlinx.android.synthetic.main.item_leaderboard.view.*
 
 class LeaderboardAdapter(private val items: List<User>, private val userId: String) :
     RecyclerView.Adapter<LeaderboardViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeaderboardViewHolder {
         return LeaderboardViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.listitem_leaderboard, parent, false)
+                .inflate(R.layout.item_leaderboard, parent, false)
         )
     }
 

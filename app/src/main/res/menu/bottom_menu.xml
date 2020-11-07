@@ -12,6 +12,11 @@
         android:icon="@drawable/ic_rewards"
         android:title="Ödüller"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/transactions"
+        android:icon="@drawable/ic_transactions"
+        android:title="Harcamalarım"
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/profile"

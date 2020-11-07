@@ -22,7 +22,7 @@ class UserFormViewModel(private val userRepository: UserRepository) : BaseViewMo
         val name = nameChangedData.get() ?: ""
         val surname = surnameChangedData.get() ?: ""
         val email = emailChangedData.get() ?: ""
-        val point = 0
+        val point = user.point
 
         val newUser = User().apply {
             uid = user.uid

@@ -10,7 +10,7 @@ import com.github.vipulasri.timelineview.TimelineView.LineStyle.DASHED
 import com.github.vipulasri.timelineview.TimelineView.LineStyle.NORMAL
 import com.iebayirli.appcent.R
 import com.iebayirli.appcent.model.Achievement
-import kotlinx.android.synthetic.main.listitem_achievements.view.*
+import kotlinx.android.synthetic.main.item_achievements.view.*
 
 
 class AchievementsAdapter(private val items: List<Achievement>) :
@@ -18,7 +18,7 @@ class AchievementsAdapter(private val items: List<Achievement>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AchievementsViewHolder {
         return AchievementsViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.listitem_achievements, parent, false), viewType
+                .inflate(R.layout.item_achievements, parent, false), viewType
         )
     }
 

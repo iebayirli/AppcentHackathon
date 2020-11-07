@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <data>
+
+        <variable
+            name="itemClickListener"
+            type="com.iebayirli.appcent.ui.home.ItemClickListener" />
 
         <variable
             name="model"
@@ -12,9 +17,11 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
+        android:layout_height="285dp"
         android:layout_marginTop="16dp"
-        app:cardCornerRadius="6dp"
-        android:layout_height="250dp">
+        android:onClick="@{() -> model.isUsable ? itemClickListener.onItemClicked(model) : null}"
+        android:alpha="@{model.isUsable ? 1f : 0.5f}"
+        app:cardCornerRadius="6dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -22,62 +29,77 @@
 
 
             <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/guideline1"
                 app:layout_constraintGuide_percent=".6" />
 
             <ImageView
                 android:id="@+id/ivCampaignImage"
+                setImage="@{model.image}"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:scaleType="fitXY"
-                setImage="@{model.image}"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/guideline1" />
+                app:layout_constraintBottom_toBottomOf="@+id/guideline1"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvCampaignHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@{model.header}"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@+id/tvCampaignInformation"
-                app:layout_constraintTop_toTopOf="@+id/guideline1" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline1"
+                tools:text="Kahve" />
 
             <TextView
                 android:id="@+id/tvCampaignInformation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
                 android:gravity="center_vertical"
                 android:text="@{model.information}"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias=".1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvCampaignHeader" />
+                app:layout_constraintEnd_toEndOf="@id/tvCampaignPrice"
+                app:layout_constraintStart_toStartOf="@+id/tvCampaignLimit"
+                app:layout_constraintTop_toBottomOf="@+id/tvCampaignLimit" />
 
 
             <TextView
                 android:id="@+id/tvCampaignPrice"
+                setText="@{`Ücret: ` + model.price.toString()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                setText="@{model.price.toString()}"
-                android:textSize="12sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:gravity="center_vertical"
-                app:layout_constraintTop_toTopOf="@+id/tvCampaignHeader"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCampaignHeader"
+                tools:text="123" />
 
+            <TextView
+                android:id="@+id/tvCampaignLimit"
+                setText="@{`Gerekli Puan: ` + model.limit.toString()}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tvCampaignHeader"
+                app:layout_constraintTop_toBottomOf="@id/tvCampaignHeader"
+                tools:text="123" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

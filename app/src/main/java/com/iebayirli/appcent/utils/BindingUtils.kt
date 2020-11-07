@@ -24,7 +24,6 @@ fun navigate(view: View, @IdRes destinationId: Int, navigator: NavigatorListener
         navigator.navigate(destinationId)
     }
 }
-
 @BindingAdapter(value = ["bottomNavigator"])
 fun bottomNavigate(view: BottomNavigationView, navigator: OnItemSelectListener) {
 
@@ -35,6 +34,7 @@ fun bottomNavigate(view: BottomNavigationView, navigator: OnItemSelectListener) 
                 R.id.home -> navigator.onItemSelect(BottomNavigateState.HOME)
                 R.id.rewards -> navigator.onItemSelect(BottomNavigateState.ACHIEVEMENTS)
                 R.id.profile -> navigator.onItemSelect(BottomNavigateState.PROFILE)
+                R.id.transactions -> navigator.onItemSelect(BottomNavigateState.TRANSACTIONS)
             }
             return true
         }
@@ -72,6 +72,6 @@ fun setImage(imageView: ImageView, imageUrl: String?) {
 @BindingAdapter(value = ["setText"])
 fun setTextForPrice(textView: TextView, text: String?) {
     if (text.isNullOrEmpty().not()) {
-        textView.text = "$text TL"
+        textView.text = "$text Puan"
     }
 }

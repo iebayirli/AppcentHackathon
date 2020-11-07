@@ -12,7 +12,12 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_userFormFragment"
-            app:destination="@id/userFormFragment" />
+            app:destination="@id/userFormFragment">
+            <argument
+                android:name="EDIT_MODE"
+                app:argType="boolean"
+                android:defaultValue="false" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/userFormFragment"

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AppcentHackathon</string>
+    <string name="appcent_hackhaton">Appcent Hackhaton</string>
+    <string name="otp_code">SMS şifreniz</string>
+    <string name="phone_number">+90 xxx xxx xx xx</string>
+    <string name="onayla">Onayla</string>
 </resources>

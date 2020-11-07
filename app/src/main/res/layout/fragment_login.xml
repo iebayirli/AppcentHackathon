@@ -5,6 +5,7 @@
     tools:context=".ui.login.LoginFragment">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.iebayirli.appcent.ui.login.LoginViewModel" />
@@ -13,18 +14,63 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_phone">
 
-        <Button
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Navigate User Form"
-            navigate="@{@id/action_loginFragment_to_userFormFragment}"
-            navigator="@{viewModel.navigate}"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_app"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintWidth_percent="0.75">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@{(viewModel.getOnCodeSend()) ? @string/otp_code : @string/phone_number }"
+                android:inputType="phone"
+                android:maxLength="@{(viewModel.getOnCodeSend()) ? 6 : 13 }" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:onClick="@{() -> (viewModel.getOnCodeSend()) ? viewModel.verify(editTextPhone.getText().toString()) : viewModel.signInWithPhoneNumber(editTextPhone.getText().toString())}"
+            android:text="@string/onayla"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/textInput"
+            app:layout_constraintStart_toStartOf="@+id/textInput"
+            app:layout_constraintTop_toBottomOf="@+id/textInput" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

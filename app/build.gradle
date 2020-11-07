@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'koin'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 
 android {
@@ -69,9 +70,19 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     // Firestore
-    implementation "com.google.firebase:firebase-firestore:$firestore_version"
+    implementation 'com.google.firebase:firebase-firestore-ktx:22.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    // Declare the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation "com.google.firebase:firebase-auth-ktx:20.0.0"
+    implementation 'androidx.browser:browser:1.2.0'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    implementation 'com.github.vipulasri:timelineview:1.1.5'
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

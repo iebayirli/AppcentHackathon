@@ -14,14 +14,14 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
-    viewModel { MainViewModel() }
-    viewModel { SplashViewModel() }
+    viewModel { MainViewModel(get(), get()) }
+    viewModel { SplashViewModel(get(), get(), get()) }
     viewModel { ParentLoginViewModel() }
-    viewModel { LoginViewModel() }
-    viewModel { UserFormViewModel() }
-    viewModel { HomeViewModel() }
-    viewModel { AchievementsViewModel() }
-    viewModel { ProfileViewModel() }
+    viewModel { LoginViewModel(get(), get(), get(), get()) }
+    viewModel { UserFormViewModel(get()) }
+    viewModel { HomeViewModel(get()) }
+    viewModel { AchievementsViewModel(get()) }
+    viewModel { ProfileViewModel(get()) }
     viewModel { TransactionsViewModel() }
     viewModel { OnboardingViewModel() }
 

@@ -15,14 +15,86 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:src="@drawable/top_appbar"
+            android:scaleType="fitXY"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/mainAppIcon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:alpha=".4"
+            android:src="@drawable/ic_app"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".15" />
+
         <TextView
+            android:id="@+id/tvUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.welcome}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@{viewModel.userName}"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mainAppIcon"
+            tools:text="Hoşgeldin Emre" />
+
+        <TextView
+            android:id="@+id/tvPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@{viewModel.pointInformation}"
+            android:textColor="@android:color/white"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/topAppBar"
+            app:layout_constraintEnd_toEndOf="@+id/tvUserName"
+            app:layout_constraintStart_toStartOf="@id/tvUserName"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+            tools:text="0" />
+
+        <fragment
+            android:id="@+id/fragment_container_main"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_main"
+            app:layout_constraintTop_toBottomOf="@+id/topAppBar"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavView" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnQr"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="16dp"
+            android:onClick="@{() -> viewModel.openDialogClicked()}"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/topAppBar"
+            app:layout_constraintTop_toTopOf="@+id/mainAppIcon"
+            app:srcCompat="@drawable/ic_baseline_qr_code_scanner_24"
+            app:tint="@color/white" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom_menu"
+            app:itemIconTint="@drawable/icon_selector"
+            app:itemTextColor="@drawable/icon_selector"
+            bottomNavigator="@{viewModel.itemSelectListener}"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

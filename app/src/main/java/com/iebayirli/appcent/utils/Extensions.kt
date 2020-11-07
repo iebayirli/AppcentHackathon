@@ -15,3 +15,6 @@ fun <T> LiveData<T>.observeNotNull(owner: LifecycleOwner, block: (T) -> Unit) {
 
 fun <T : BaseActivity<*, *>> Class<T>.createIntent(context: Context) = Intent(context, this)
 
+fun <T> MutableLiveData(data: T) = androidx.lifecycle.MutableLiveData<T>().apply {
+    value = data
+}

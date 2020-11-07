@@ -18,7 +18,9 @@ class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
 
     override val viewModel by viewModel<SplashViewModel>()
 
+
     override fun initializeUI(savedInstanceState: Bundle?) {
+
     }
 
     override fun observe() {
@@ -30,7 +32,12 @@ class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
                         this
                     )
                 )
-                else -> startActivity(LoginActivity::class.java.createIntent(this))
+                else -> startActivity(
+                    LoginActivity::class.java.createIntent(
+
+                        this
+                    )
+                )
             }
         }
     }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/homeFragment">
+
+    <action
+        android:id="@+id/action_gotoHome"
+        app:destination="@id/homeFragment" />
+    <action
+        android:id="@+id/action_gotoProfile"
+        app:destination="@id/profileFragment" />
+    <action
+        android:id="@+id/action_gotoAchievements"
+        app:destination="@id/achievementsFragment" />
+
+    <action
+        android:id="@+id/action_gotouserFormFragment2"
+        app:destination="@id/userFormFragment2">
+        <argument
+            android:name="EDIT_MODE"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </action>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.iebayirli.appcent.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/achievementsFragment"
+        android:name="com.iebayirli.appcent.ui.achievements.AchievementsFragment"
+        android:label="fragment_achievements"
+        tools:layout="@layout/fragment_achievements"></fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.iebayirli.appcent.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+
+    </fragment>
+    <fragment
+        android:id="@+id/userFormFragment2"
+        android:name="com.iebayirli.appcent.ui.user_form.UserFormFragment"
+        android:label="UserFormFragment" />
+</navigation>

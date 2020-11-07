@@ -15,6 +15,10 @@ class AchievementsViewModel(private val achievementRepository: AchievementReposi
 
 
     init {
+        setupAchievements()
+    }
+
+    fun setupAchievements() {
         _dialog.postValue(DialogState.SHOW)
         achievementRepository.getAchievements(user.point) {
             _achievements.postValue(it)

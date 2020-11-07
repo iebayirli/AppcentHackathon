@@ -72,6 +72,17 @@
             app:layout_constraintStart_toStartOf="@+id/textInput"
             app:layout_constraintTop_toBottomOf="@+id/textInput" />
 
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:onClick="@{() -> (viewModel.addTestUser())}"
+            android:text="Üye olmadan devam et"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/textInput"
+            app:layout_constraintStart_toStartOf="@+id/textInput"
+            app:layout_constraintTop_toBottomOf="@+id/button" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/information"

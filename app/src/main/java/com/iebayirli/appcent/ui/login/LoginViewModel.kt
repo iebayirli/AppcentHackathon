@@ -105,4 +105,29 @@ class LoginViewModel(
         signInWithPhoneAuthCredential(credential)
     }
 
+    fun getRandomString(length: Int): String {
+        val allowedChars = ('A'..'Z') + ('a'..'z') + ('0'..'9')
+        return (1..length)
+            .map { allowedChars.random() }
+            .joinToString("")
+    }
+
+    fun addTestUser() {
+        _dialog.postValue(DialogState.SHOW)
+        user.uid = getRandomString(10)
+        user.phoneNumber = "+905555555555"
+        user.name = "Test"
+        user.email = "test@gmail.com"
+        user.point = 0
+        user.surname = ""
+        user.phoneNumber = "+905555555555"
+        userRepository.addUser(user.uid!!, this@LoginViewModel.user)
+            .addOnSuccessListener {
+                _dialog.postValue(DialogState.HIDE)
+                _navigateToMain.postValue(true)
+            }.addOnFailureListener {
+                _dialog.postValue(DialogState.HIDE)
+            }
+    }
+
 }

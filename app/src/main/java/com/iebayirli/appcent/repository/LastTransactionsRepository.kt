@@ -22,7 +22,9 @@ class LastTransactionsRepository : BaseRepository() {
                         }
                     }
                     block(list)
+                    return@addOnSuccessListener
                 }
+                block(listOf())
             }
         }
     }

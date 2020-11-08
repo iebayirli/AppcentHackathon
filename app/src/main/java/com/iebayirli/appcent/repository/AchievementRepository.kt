@@ -16,7 +16,7 @@ class AchievementRepository : BaseRepository() {
                 documents.forEach {
                     val obj = it.toObject(Achievement::class.java)
                     obj?.let { achievement ->
-                        achievement.isRewarded = (userPoint > achievement.limit ?: 0)
+                        achievement.isRewarded = (userPoint >= achievement.limit ?: 0)
                         list.add(achievement)
                     }
                 }

@@ -1,6 +1,5 @@
 package com.iebayirli.appcent.ui.main
 
-import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.iebayirli.appcent.base.BaseViewModel
@@ -25,7 +24,7 @@ class MainViewModel(
     val navigate = LiveEvent<BottomNavigateState>()
     var currentState: BottomNavigateState = BottomNavigateState.HOME
 
-    var userName = ObservableField("Hoşgeldin ${user.name}")
+    var userName = MutableLiveData(user.name)
     private val _pointInformation = MutableLiveData(user.point.toString() + " Puan")
     val pointInformation: LiveData<String>
         get() = _pointInformation
@@ -59,6 +58,10 @@ class MainViewModel(
     fun qrCodeRead() {
         updatePoint(15, "${TransactionState.KAZANC} - QR")
 
+    }
+
+    fun updateUsername() {
+        userName.postValue(user.name)
     }
 
     fun updatePoint(value: Int, name: String) {

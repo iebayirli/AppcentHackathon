@@ -40,7 +40,7 @@
             android:id="@+id/tvUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.userName}"
+            android:text="@{`Hoşgeldin ` + viewModel.userName}"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"

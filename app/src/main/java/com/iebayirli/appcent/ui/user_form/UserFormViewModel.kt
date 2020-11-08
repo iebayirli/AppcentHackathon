@@ -32,6 +32,7 @@ class UserFormViewModel(private val userRepository: UserRepository) : BaseViewMo
             this.surname = surname
             this.email = email
             this.point = point
+            this.highestPoint = highestPoint
 
         }
         _dialog.postValue(DialogState.SHOW)

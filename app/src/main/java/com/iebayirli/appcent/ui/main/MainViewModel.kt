@@ -64,12 +64,19 @@ class MainViewModel(
     fun updatePoint(value: Int, name: String) {
         _dialog.postValue(DialogState.SHOW)
         val point = user.point + value
+        val map: HashMap<String, Any> = hashMapOf(
+            "point" to point
+        )
+        if (point > user.highestPoint) {
+            map["highestPoint"] = point
+        }
         userRepository.updateUser(
-            user.uid!!, hashMapOf(
-                "point" to point
-            )
+            user.uid!!, map
         ).addOnSuccessListener {
             user.point = point
+            if (point > user.highestPoint) {
+                user.highestPoint = point
+            }
             _pointInformation.postValue("$point Puan")
             closeQRDialog.postValue("CloseDialog")
             _dialog.postValue(DialogState.HIDE)

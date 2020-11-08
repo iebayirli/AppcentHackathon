@@ -23,6 +23,7 @@ class UserFormViewModel(private val userRepository: UserRepository) : BaseViewMo
         val surname = surnameChangedData.get() ?: ""
         val email = emailChangedData.get() ?: ""
         val point = user.point
+        val highestPoint = user.highestPoint
 
         val newUser = User().apply {
             uid = user.uid
@@ -39,7 +40,8 @@ class UserFormViewModel(private val userRepository: UserRepository) : BaseViewMo
                 "name" to name,
                 "surname" to surname,
                 "email" to email,
-                "point" to point
+                "point" to point,
+                "highestPoint" to highestPoint
             )
         ).addOnSuccessListener {
             syncUser(newUser)

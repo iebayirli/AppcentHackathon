@@ -20,7 +20,7 @@ class AchievementsViewModel(private val achievementRepository: AchievementReposi
 
     fun setupAchievements() {
         _dialog.postValue(DialogState.SHOW)
-        achievementRepository.getAchievements(user.point) {
+        achievementRepository.getAchievements(user.highestPoint) {
             _achievements.postValue(it)
             _dialog.postValue(DialogState.HIDE)
         }

@@ -30,5 +30,6 @@ abstract class BaseViewModel() : ViewModel(), KoinComponent {
         this.user.surname = user.surname
         this.user.name = user.name
         this.user.point = user.point
+        this.user.highestPoint = user.highestPoint
     }
 }

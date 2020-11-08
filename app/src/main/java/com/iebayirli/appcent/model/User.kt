@@ -7,5 +7,6 @@ class User(
     var name: String? = null,
     var surname: String? = null,
     var email: String? = null,
-    var point: Int = 0
+    var point: Int = 0,
+    var highestPoint: Int = 0
 )

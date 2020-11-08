@@ -121,6 +121,7 @@ class LoginViewModel(
         user.point = 0
         user.surname = ""
         user.phoneNumber = "+905555555555"
+        user.highestPoint = 0
         userRepository.addUser(user.uid!!, this@LoginViewModel.user)
             .addOnSuccessListener {
                 _dialog.postValue(DialogState.HIDE)
